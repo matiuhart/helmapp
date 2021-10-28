@@ -1,4 +1,4 @@
-# Default values for helmapp.
+# Default values for test.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -67,6 +67,14 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+healthcheck:
+  readinessProbe:
+    path: /readiness
+    port: http
+  livenessProbe:
+    path: /liveness
+    port: http
 
 autoscaling:
   enabled: false
